@@ -26,7 +26,7 @@ const Profile = () => {
         <div style={{ display: "flex", flexDirection: "row" }}>
           <span>User ID: {user?.uid}</span>
           <span>
-            Access Token: <pre>{user?.accessToken}</pre>
+            Access Token: <pre>{user?.accessToken.substring(0, 200)}</pre>
           </span>
         </div>
       </div>
