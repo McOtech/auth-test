@@ -1,8 +1,20 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import AuthButton from "@/components/AuthButton";
+import Profile from "@/components/Profile";
+import { cookies } from "next/headers";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./constants";
 
-export default function Home() {
+export default async function Home() {
+  const cookieStore = cookies();
+  cookieStore.getAll().forEach((cookie) => {
+    console.log(`Cookie ${cookie.name} => ${cookie.value}`);
+  });
+
+  const session = await getServerSession(authOptions);
+  console.log(`Session User: `, session?.user);
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -39,8 +51,9 @@ export default function Home() {
           priority
         />
       </div>
-      <div style={{ backgroundColor: "orange", padding: '2rem' }}>
+      <div style={{ backgroundColor: "orange", padding: "2rem" }}>
         <AuthButton />
+        <Profile />
       </div>
 
       <div className={styles.grid}>
