@@ -1,5 +1,6 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "./page.module.css";
+import AuthButton from "@/components/AuthButton";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -37,6 +38,9 @@ export default function Home() {
           height={37}
           priority
         />
+      </div>
+      <div style={{ backgroundColor: "orange", padding: '2rem' }}>
+        <AuthButton />
       </div>
 
       <div className={styles.grid}>
@@ -91,5 +95,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
